@@ -16,13 +16,18 @@ class PropertiesTest(impall.ImpAllTest):
         'test/edge/edge/maybe',
         'test/edge/edge/sure',
     )
-    FAILING = 'test/edge/edge/ok.py', 'test/edge/edge/sub/one.py'
+    FAILING = (
+        'test/edge/edge/ok.py',
+        'test/edge/edge/sub/one.py',
+        'test/edge/__main__.py',
+    )
 
 
 class ImpAllSubdirectoriesTest(impall.ImpAllTest):
     MODULES = False
     PATHS = str(pathlib.Path(__file__).parent)
     FAILING = (
+        'test/edge/__main__.py',
         'test/edge/edge/maybe.py',
         'test/edge/edge/no.py',
         'test/edge/edge/ok.py',
