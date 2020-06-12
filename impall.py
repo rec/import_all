@@ -276,7 +276,9 @@ ENV_SEPARATOR = ':'
 
 def _is_ignored(path):
     b = os.path.basename(path)
-    return b.startswith('.') or b.startswith('__')
+    return b.startswith('.') or (
+        b.startswith('__') and b == '__init__.py' or not b.endswith('.py')
+    )
 
 
 def _is_python_dir(path):
